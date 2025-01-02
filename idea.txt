@@ -1,0 +1,12 @@
+Student Module:
+--------------
+Register: Students can register by providing details like name, email, password, etc.
+Login: Authenticate students using email and password.
+View Personal Details: Students can fetch their personal profile data.
+
+Admin Module:
+------------
+View All Students: Admins can view a list of all registered students.
+Add User: Admins can add new users (both students and admins).
+Edit User: Admins can edit user details.
+Block/Unblock User: Admins can toggle a user's active status.
