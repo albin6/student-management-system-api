@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import { IStudentService } from "../../services/student/IStudent.service";
 import { IUser } from "../../interfaces/IUser.interface";
-import { generateAccessToken } from "../../utils/jwt";
-import { set_token } from "../../utils/setToken";
 import { AuthenticatedRequest } from "../../middlewares/AuthenticatedRequest";
 
 export class StudentController {
@@ -42,11 +40,7 @@ export class StudentController {
         email: student.email,
         role: student.role,
       };
-      const token = generateAccessToken({
-        id: student._id!,
-        role: student.role,
-      });
-      set_token("userToken", token, 24 * 60 * 60 * 1000, res);
+
       res
         .status(200)
         .json({ success: true, message: "Login successful", user: userData });

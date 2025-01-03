@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
 import { IAdminService } from "../../services/admin/IAdmin.service";
-import { generateAccessToken } from "../../utils/jwt";
-import { set_token } from "../../utils/setToken";
 
 export class AdminController {
   private adminService: IAdminService;
@@ -34,8 +32,6 @@ export class AdminController {
         password: string;
       };
       const admin = await this.adminService.isAdminExists(email, password);
-      const token = generateAccessToken({ id: admin._id!, role: admin.role });
-      set_token("adminToken", token, 24 * 60 * 60 * 1000, res);
       res.status(200).json({
         success: true,
         message: "Login successful",
